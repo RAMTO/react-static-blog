@@ -25,8 +25,22 @@ injectGlobal`
         font-size: 72px;
     }
 
-    * {
+    *, *:before, *:after {
         box-sizing: border-box;
+    }
+
+    .title-main {
+        font-size: 52px;
+    }
+
+    .title-lead {
+        font-size: 24px;
+        line-height: 1.4;
+    }
+
+    .text-body {
+        font-size: 21px;
+        line-height: 1.5;
     }
 `
 
@@ -40,6 +54,8 @@ const AppStyles = styled.div`
     nav {
         width: 100%;
         background: #108db8;
+        position: sticky;
+        top: 0;
 
         a {
             color: white;
@@ -53,21 +69,29 @@ const AppStyles = styled.div`
         height: auto;
     }
 
-    .content {
-        padding: 1rem;
+    .container-wrapper {
+        padding: 0 32px;
+    }
+
+    @media (min-width: 1170px) {
+        .container-wrapper {
+            max-width: 1170px;
+            margin: 0 auto;
+        }
     }
 `
-
 export default () => (
     <Router>
         <AppStyles>
             <nav>
-                <Link to="/">Home</Link>
-                <Link to="/categories">Categories</Link>
-                <Link to="/about">About</Link>
-                <Link to="/blog">Blog</Link>
+                <div className="container-wrapper">
+                    <Link to="/">Home</Link>
+                    <Link to="/categories">Categories</Link>
+                    <Link to="/about">About</Link>
+                    <Link to="/blog">Blog</Link>
+                </div>
             </nav>
-            <div className="content">
+            <div className="container-wrapper">
                 <Switch>
                     <Route exact path="/" component={Home} />
                     <Route path="/categories" component={Categories} />
