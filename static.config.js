@@ -110,8 +110,6 @@ export default {
                         <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico" />
                         <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico" />
 
-                        <link href="https://fonts.googleapis.com/css?family=Droid+Serif|Roboto" rel="stylesheet" />
-
                         {styleTags}
                     </Head>
                     <Body>{newChildren}</Body>
