@@ -1,7 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
-import WebFont from 'webfontloader'
+
+const WebFont = require('webfontloader')
 
 WebFont.load({
     google: {
