@@ -80,6 +80,9 @@ export default {
 
         return routeList
     },
+
+    siteRoot: 'https://dobreff-blog.netlify.com/', 
+
     Html: class CustomHtml extends Component {
         render() {
             const { Html, Head, Body, children } = this.props
