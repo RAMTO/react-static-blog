@@ -1,13 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
-var WebFont = require('webfontloader');
-
-WebFont.load({
-    google: {
-        families: ['Droid Serif', 'Roboto']
-    }
-});
 
 // Your top level component
 import App from './App'

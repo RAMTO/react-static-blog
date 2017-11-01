@@ -16,8 +16,7 @@
     "react-markdown": "^2.5.0",
     "react-router": "^4.2.0",
     "react-static": "^1.x.x",
-    "styled-components": "2.2.0",
-    "webfontloader": "^1.6.28"
+    "styled-components": "2.2.0"
   },
   "devDependencies": {
     "eslint-config-react-tools": "^1.0.6",
