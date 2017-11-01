@@ -99,7 +99,7 @@ export default {
                         <meta name="MobileOptimized" content="320" />
                         <meta name="format-detection" content="telephone=no" />
 
-                        <title>React Blog</title>
+                        <title>React Blog - Home</title>
                         <meta name="description" content="{{{meta.description}}}" />
 
                         <meta property="og:title" content="" />
