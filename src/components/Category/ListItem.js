@@ -6,6 +6,12 @@ const CategoryItem = styled.div`
     display: flex;
     height: 200px;
     margin-bottom: 10px;
+
+    &:hover {
+        .title {
+            color: ${props => props.theme.colors.primary};
+        }
+    }
     
     .image {
         display: flex;
@@ -15,7 +21,6 @@ const CategoryItem = styled.div`
         background-image: url(${props => props.url});
         background-size: cover;
         background-position: center;
-        border-radius: 8px;
         overflow: hidden;
     }
 
@@ -27,10 +32,6 @@ const CategoryItem = styled.div`
         color: #fff;
         transition: transform 0.3s ease;
         transform-origin: left bottom;
-    }
-
-    .image:hover .title {
-        transform: scale(1.1);
     }
 `
 

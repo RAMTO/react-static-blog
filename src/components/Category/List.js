@@ -7,7 +7,7 @@ const CategoryList = styled.div`
     @media (min-width: 770px) {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        grid-gap: 10px;
+        grid-gap: 24px;
     }
 `
 

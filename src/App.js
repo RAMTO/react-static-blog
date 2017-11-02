@@ -1,15 +1,26 @@
 import React from 'react'
 import { Router, Route, Switch, Redirect, Link } from 'react-static'
-import styled, { injectGlobal } from 'styled-components'
+import styled, { injectGlobal, ThemeProvider } from 'styled-components'
 //
 import Home from 'containers/Home'
 import About from 'containers/About'
 import Blog from 'containers/Blog'
 import Categories from 'containers/Categories'
 
+const theme = {
+    colors: {
+        primary: '#4ECDC4',
+        secondary: '#4C6270'
+    },
+    fontFace: {
+        titles: '',
+        body: '',
+    }
+}
+
 injectGlobal`
     body {
-        font-family: 'Roboto', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial,
+        font-family: 'Open Sans', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial,
             'Lucida Grande', sans-serif;
         font-weight: 300;
         font-size: 16px;
@@ -18,7 +29,7 @@ injectGlobal`
     }
 
     h1, h2, h3, h4, h5, h6 {
-        font-family: 'Droid Serif', serif;
+        font-family: 'Ovo', serif;
     }
 
     h1 {
@@ -53,14 +64,16 @@ const AppStyles = styled.div`
 
     nav {
         width: 100%;
-        background: #108db8;
+        border-bottom: 2px solid ${props => props.theme.colors.primary};
+        background-color: #fff;
         position: sticky;
         top: 0;
 
         a {
-            color: white;
+            color: ${props => props.theme.colors.secondary};
             padding: 1rem;
             display: inline-block;
+            text-transform: uppercase;
         }
     }
 
@@ -82,24 +95,26 @@ const AppStyles = styled.div`
 `
 export default () => (
     <Router>
-        <AppStyles>
-            <nav>
+        <ThemeProvider theme={theme}>
+            <AppStyles>
+                <nav>
+                    <div className="container-wrapper">
+                        <Link to="/">Home</Link>
+                        <Link to="/categories">Categories</Link>
+                        <Link to="/about">About</Link>
+                        <Link to="/blog">Blog</Link>
+                    </div>
+                </nav>
                 <div className="container-wrapper">
-                    <Link to="/">Home</Link>
-                    <Link to="/categories">Categories</Link>
-                    <Link to="/about">About</Link>
-                    <Link to="/blog">Blog</Link>
+                    <Switch>
+                        <Route exact path="/" component={Home} />
+                        <Route path="/categories" component={Categories} />
+                        <Route path="/about" component={About} />
+                        <Route path="/blog" component={Blog} />
+                        <Redirect to="/" />
+                    </Switch>
                 </div>
-            </nav>
-            <div className="container-wrapper">
-                <Switch>
-                    <Route exact path="/" component={Home} />
-                    <Route path="/categories" component={Categories} />
-                    <Route path="/about" component={About} />
-                    <Route path="/blog" component={Blog} />
-                    <Redirect to="/" />
-                </Switch>
-            </div>
-        </AppStyles>
+            </AppStyles>
+        </ThemeProvider>
     </Router>
 )

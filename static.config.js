@@ -116,7 +116,7 @@ export default {
                         {styleTags}
                     </Head>
                     <Body>{newChildren}</Body>
-                    <link href="https://fonts.googleapis.com/css?family=Droid+Serif|Roboto" rel="stylesheet" />
+                    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Ovo" rel="stylesheet" />
                 </Html>
             )
         }
