@@ -8,6 +8,17 @@ import App from './App'
 // Export your top level component as JSX (for static rendering)
 export default <App />
 
+// This will make sure WebFont.load is only used in the browser.
+if (typeof window !== 'undefined') {
+    var WebFont = require('webfontloader')
+
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'Ovo']
+        }
+    })
+}
+
 // Render your app
 if (typeof document !== 'undefined') {
     const render = Comp => {
