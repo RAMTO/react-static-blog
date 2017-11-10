@@ -1,11 +1,13 @@
 import React from 'react'
 import { Router, Route, Switch, Redirect, Link } from 'react-static'
-import styled, { injectGlobal, ThemeProvider } from 'styled-components'
+import { injectGlobal, ThemeProvider } from 'styled-components'
 //
 import Home from 'containers/Home'
 import About from 'containers/About'
 import Blog from 'containers/Blog'
 import Categories from 'containers/Categories'
+
+import Menu from 'components/General/Menu'
 
 const theme = {
     colors: {
@@ -53,28 +55,11 @@ injectGlobal`
         font-size: 21px;
         line-height: 1.5;
     }
-`
 
-const AppStyles = styled.div`
     a {
         text-decoration: none;
         color: #108db8;
         font-weight: bold;
-    }
-
-    nav {
-        width: 100%;
-        border-bottom: 2px solid ${props => props.theme.colors.primary};
-        background-color: #fff;
-        position: sticky;
-        top: 0;
-
-        a {
-            color: ${props => props.theme.colors.secondary};
-            padding: 1rem;
-            display: inline-block;
-            text-transform: uppercase;
-        }
     }
 
     img {
@@ -93,18 +78,12 @@ const AppStyles = styled.div`
         }
     }
 `
+
 export default () => (
     <Router>
         <ThemeProvider theme={theme}>
-            <AppStyles>
-                <nav>
-                    <div className="container-wrapper">
-                        <Link to="/">Home</Link>
-                        <Link to="/categories">Categories</Link>
-                        <Link to="/about">About</Link>
-                        <Link to="/blog">Blog</Link>
-                    </div>
-                </nav>
+            <div>
+                <Menu />
                 <div className="container-wrapper">
                     <Switch>
                         <Route exact path="/" component={Home} />
@@ -114,7 +93,7 @@ export default () => (
                         <Redirect to="/" />
                     </Switch>
                 </div>
-            </AppStyles>
+            </div>
         </ThemeProvider>
     </Router>
 )
